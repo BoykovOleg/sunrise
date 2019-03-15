@@ -1,26 +1,22 @@
 Application Architecture
 ========================
 
-Application has three layers:
-domain - contains domain models(entities, value objects) and repositories
-application - contains application services, DTOs, result objects(dto)
-presentation(ui) - contains controllers and controller advice.
+Application has three layers:  
+domain - contains domain models(entities, value objects) and repositories.  
+application - contains application services, DTOs, result objects(dto).  
+presentation(ui) - contains controllers and controller advice.  
 
+Domain layer works only with spring infrastructure(annotation, repository implementations).
+Domain layer cannot use application or presentation components(classes).  
+Application layer can use domain components(classes), but cannot use presentation components.  
+Presentation works only with the application layer and the main entry point is dev.sunrise.application.Application class.  
 
-
-Domain layer works only with spring infrastructure(annotation, repository implementations). 
-Domain layer cannot use application or presentation components(classes).
-Application layer can use domain components(classes), but cannot use presentation components.
-Presentation works only with the application layer and the main entry point is dev.sunrise.application.Application class.
-
-Presentation interacts with dev.sunrise.application.Application only with DTOs and spring classes(Pageable).
+Presentation interacts with dev.sunrise.application.Application only with DTOs and spring classes(Pageable).  
 The validation is on the application layer. It is part of the application, not presentation(but presentation layer can have validation too).
 
 Application layer has the event_time package for providing events time info and the sunrise_api package for requesting external api - https://sunrise-sunset.org/api.
 
-
-
-The article about layered architecture in spring - https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/
+The article about layered architecture in spring - https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/  
 The names of packages can be renamed to more traditional - services, repositories, entities, etc.
 
 Environment and Deploying
