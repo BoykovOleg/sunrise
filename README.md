@@ -6,11 +6,10 @@ domain - contains domain models(entities, value objects) and repositories.
 application - contains application services, DTOs, result objects(dto).  
 presentation(ui) - contains controllers and controller advice.  
 
-Domain layer works only with spring infrastructure(annotation, repository implementations).
+Domain layer works only with spring infrastructure(annotation, repository implementations).  
 Domain layer cannot use application or presentation components(classes).  
 Application layer can use domain components(classes), but cannot use presentation components.  
 Presentation works only with the application layer and the main entry point is dev.sunrise.application.Application class.  
-
 Presentation interacts with dev.sunrise.application.Application only with DTOs and spring classes(Pageable).  
 The validation is on the application layer. It is part of the application, not presentation(but presentation layer can have validation too).
 
